@@ -21,7 +21,7 @@ $id=$_GET['id'];
                   <h1 id="err" style="display:block;" class="text-center">NO POST PUBLISHED</h1>
               </h1>
 
-                <!-- First Blog Post"post.php?p_id=<?php echo $post_id;?>" -->
+                <!-- First Blog Post" -->
                 <?php
                  $select="SELECT * FROM `posts` where post_id='$id'";
                  $posts_select=mysqli_query($connection,$select);
@@ -52,7 +52,7 @@ $id=$_GET['id'];
                      <img class="img-responsive float-right" src="images/<?php echo $post_image2;?>" alt="This is an image" style="width:20%;">
                      <br>
                      <h4 class="text-secondary"><?php echo $post_content;  ?></h4>
-                      <h5 class="text-danger font-weight-bold"><span class="glyphicon glyphicon-time"></span> Starting at <?php echo $post_author;?></h4>
+                      <h5 class="text-danger font-weight-bold"><span class="glyphicon glyphicon-time"></span> Starting at <?php include "time.php"?></h4>
                       <br>
 
                    </div>

@@ -47,7 +47,7 @@
                      <img class="img-responsive float-right" src="images/<?php echo $post_image2;?>" alt="This is an image" style="width:20%;">
                      <br>
                      <h4 class="text-secondary"><?php echo $post_content;  ?></h4>
-                      <h5 class="text-danger font-weight-bold"><span class="glyphicon glyphicon-time"></span> Starting at <?php echo $post_author;?></h4>
+                      <h5 class="text-danger font-weight-bold"><span class="glyphicon glyphicon-time"></span> Starting at <?php include"time.php"?></h4>
                       <br>
                     <a class="btn btn-primary" href="join.php?id=<?php echo $post_id;?>">Join Now <span class="glyphicon glyphicon-chevron-right"></span></a>
 

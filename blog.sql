@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 06, 2018 at 08:02 AM
+-- Generation Time: Oct 06, 2018 at 01:33 PM
 -- Server version: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -121,6 +121,30 @@ INSERT INTO `posts` (`post_id`, `post_title`, `post_author`, `post_content`, `po
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `time1`
+--
+
+CREATE TABLE `time1` (
+  `time_id` int(11) NOT NULL,
+  `month` varchar(3) NOT NULL,
+  `day` int(2) NOT NULL,
+  `year` int(5) NOT NULL,
+  `hour` int(2) NOT NULL,
+  `minute` int(2) NOT NULL,
+  `second` int(2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `time1`
+--
+
+INSERT INTO `time1` (`time_id`, `month`, `day`, `year`, `hour`, `minute`, `second`) VALUES
+(5, 'oct', 6, 2018, 22, 0, 0),
+(6, 'oct', 7, 2018, 10, 0, 0);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -171,6 +195,12 @@ ALTER TABLE `posts`
   ADD PRIMARY KEY (`post_id`);
 
 --
+-- Indexes for table `time1`
+--
+ALTER TABLE `time1`
+  ADD PRIMARY KEY (`time_id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -203,6 +233,12 @@ ALTER TABLE `contest`
 --
 ALTER TABLE `posts`
   MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `time1`
+--
+ALTER TABLE `time1`
+  MODIFY `time_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `users`
