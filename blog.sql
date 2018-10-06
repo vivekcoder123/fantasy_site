@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.7
+-- version 4.8.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 05, 2018 at 01:52 PM
--- Server version: 10.1.30-MariaDB
--- PHP Version: 7.1.14
+-- Generation Time: Oct 06, 2018 at 08:02 AM
+-- Server version: 10.1.33-MariaDB
+-- PHP Version: 7.2.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -58,6 +58,36 @@ CREATE TABLE `comments` (
   `comment_status` varchar(255) NOT NULL,
   `comment_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `comments`
+--
+
+INSERT INTO `comments` (`comment_id`, `comment_post_id`, `comment_author`, `comment_email`, `comment_content`, `comment_status`, `comment_date`) VALUES
+(1, 3, 'dfghjkl', 'adrd@gmail.com', 'dryguhjilk', 'unapproved', '2018-10-05');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contest`
+--
+
+CREATE TABLE `contest` (
+  `contest_id` int(11) NOT NULL,
+  `contest_title` varchar(255) NOT NULL,
+  `contest_winner` int(11) NOT NULL,
+  `contest_winnigs` int(11) NOT NULL,
+  `contest_fees` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `contest`
+--
+
+INSERT INTO `contest` (`contest_id`, `contest_title`, `contest_winner`, `contest_winnigs`, `contest_fees`) VALUES
+(9, 'rumble', 567, 12345678, 10),
+(10, 'head to head', 456, 12345, 20),
+(11, 'free roll', 789, 9876, 15);
 
 -- --------------------------------------------------------
 
@@ -129,6 +159,12 @@ ALTER TABLE `comments`
   ADD PRIMARY KEY (`comment_id`);
 
 --
+-- Indexes for table `contest`
+--
+ALTER TABLE `contest`
+  ADD PRIMARY KEY (`contest_id`);
+
+--
 -- Indexes for table `posts`
 --
 ALTER TABLE `posts`
@@ -154,7 +190,13 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `contest`
+--
+ALTER TABLE `contest`
+  MODIFY `contest_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `posts`
