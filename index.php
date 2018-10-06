@@ -30,7 +30,6 @@
                    $post_image2=$row['post_image2'];
                    $post_id=$row['post_id'];
                    $post_status=$row['post_status'];
-                     $_SESSION['title']=$post_title;
                       echo "<script type='text/javascript'>";
                       echo "document.querySelector('#err').style.display='none' ";
                       echo "</script>";
@@ -50,7 +49,7 @@
                      <h4 class="text-secondary"><?php echo $post_content;  ?></h4>
                       <h5 class="text-danger font-weight-bold"><span class="glyphicon glyphicon-time"></span> Starting at <?php echo $post_author;?></h4>
                       <br>
-                    <a class="btn btn-primary" href="join.php">Join Now <span class="glyphicon glyphicon-chevron-right"></span></a>
+                    <a class="btn btn-primary" href="join.php?id=<?php echo $post_id;?>">Join Now <span class="glyphicon glyphicon-chevron-right"></span></a>
 
                    </div>
 
