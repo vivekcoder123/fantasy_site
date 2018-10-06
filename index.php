@@ -23,7 +23,7 @@
                  $posts_select=mysqli_query($connection,$select);
                  while($row=mysqli_fetch_assoc($posts_select)){
                    $post_title=$row['post_title'];
-                   $post_author=$row['post_author'];
+                   $post_time=$row['post_author'];
                    $post_date=$row['post_date'];
                    $post_content=substr($row['post_content'],0,100);
                    $post_image1=$row['post_image1'];
@@ -47,7 +47,7 @@
                      <img class="img-responsive float-right" src="images/<?php echo $post_image2;?>" alt="This is an image" style="width:20%;">
                      <br>
                      <h4 class="text-secondary"><?php echo $post_content;  ?></h4>
-                      <h5 class="text-danger font-weight-bold"><span class="glyphicon glyphicon-time"></span> Starting at <?php include"time.php"?></h4>
+                      <h5 class="text-danger font-weight-bold"><span class="glyphicon glyphicon-time"></span> Starting at <?php echo $post_time;?></h4>
                       <br>
                     <a class="btn btn-primary" href="join.php?id=<?php echo $post_id;?>">Join Now <span class="glyphicon glyphicon-chevron-right"></span></a>
 
@@ -58,7 +58,7 @@
                 <?php } ?>
             </div>
 
-<?php include "includes/sidebar.php" ?>
+<?php include "includes/sidebar1.php" ?>
 
         </div>
         <!-- /.row -->

@@ -28,12 +28,12 @@ if(isset($_GET['source'])){
 
 switch ($source) {
   case 'add_contest':
-    include "includes/add_contest.php";
+    include "includes/add_post.php";
     break;
 
 
   default:
-    include "includes/view_all_contest.php";
+    include "includes/view_all_posts.php";
     break;
 }
 

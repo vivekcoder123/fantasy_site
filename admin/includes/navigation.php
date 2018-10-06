@@ -75,7 +75,7 @@
             </li>
 
             <li>
-            <a href="profile.php"><i class="fa fa-fw fa-dashboard"></i> Profile</a>
+            <a href="add_players.php"><i class="fa fa-fw fa-dashboard"></i> Add Players</a>
             <li>
 
         </ul>

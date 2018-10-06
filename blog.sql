@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.1
+-- version 4.7.7
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 06, 2018 at 01:33 PM
--- Server version: 10.1.33-MariaDB
--- PHP Version: 7.2.6
+-- Generation Time: Oct 06, 2018 at 03:49 PM
+-- Server version: 10.1.30-MariaDB
+-- PHP Version: 7.1.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -77,17 +77,19 @@ CREATE TABLE `contest` (
   `contest_title` varchar(255) NOT NULL,
   `contest_winner` int(11) NOT NULL,
   `contest_winnigs` int(11) NOT NULL,
-  `contest_fees` int(11) NOT NULL
+  `contest_fees` int(11) NOT NULL,
+  `total_teams` int(11) NOT NULL,
+  `contest_post_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `contest`
 --
 
-INSERT INTO `contest` (`contest_id`, `contest_title`, `contest_winner`, `contest_winnigs`, `contest_fees`) VALUES
-(9, 'rumble', 567, 12345678, 10),
-(10, 'head to head', 456, 12345, 20),
-(11, 'free roll', 789, 9876, 15);
+INSERT INTO `contest` (`contest_id`, `contest_title`, `contest_winner`, `contest_winnigs`, `contest_fees`, `total_teams`, `contest_post_id`) VALUES
+(9, 'Mega Contest', 567, 12345678, 10, 124000, 0),
+(10, 'Head To Head', 456, 12345, 20, 24557, 0),
+(11, 'Free Roll', 789, 9876, 15, 34365849, 0);
 
 -- --------------------------------------------------------
 
@@ -105,42 +107,47 @@ CREATE TABLE `posts` (
   `post_status` varchar(255) NOT NULL,
   `post_date` date NOT NULL,
   `post_category_id` int(11) NOT NULL,
-  `post_tags` varchar(255) NOT NULL
+  `post_tags` varchar(255) NOT NULL,
+  `post_contest_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `posts`
 --
 
-INSERT INTO `posts` (`post_id`, `post_title`, `post_author`, `post_content`, `post_image1`, `post_image2`, `post_status`, `post_date`, `post_category_id`, `post_tags`) VALUES
-(2, 'Ind Vs Aus', '3:00 pm', '  World Cup', 'india.png', 'australia.jpg', 'not started', '2018-10-05', 1, 'ind ,aus'),
-(3, 'Ban Vs Pak', '5:00 pm', '  Triangular Series', 'bangladesh.png', 'pakistan.jpg', 'not started', '2018-10-05', 1, 'ban,pak'),
-(4, 'South Africa Vs Zimababwe', '9:00 pm', 'Natwest series', 'sa.png', 'zimbabwe.png', 'not started', '2018-10-05', 1, 'sa,zim'),
-(5, 'Nz Vs England', '11:00 pm', ' Don Bradman Series', 'nz.png', 'england.png', 'not started', '2018-10-05', 1, 'nz,eng');
+INSERT INTO `posts` (`post_id`, `post_title`, `post_author`, `post_content`, `post_image1`, `post_image2`, `post_status`, `post_date`, `post_category_id`, `post_tags`, `post_contest_id`) VALUES
+(2, 'Ind Vs Aus', '3:00 pm', '  World Cup', 'india.png', 'australia.jpg', 'not started', '2018-10-05', 1, 'ind ,aus', 0),
+(3, 'Ban Vs Pak', '5:00 pm', '  Triangular Series', 'bangladesh.png', 'pakistan.jpg', 'not started', '2018-10-05', 1, 'ban,pak', 0),
+(4, 'South Africa Vs Zimababwe', '9:00 pm', 'Natwest series', 'sa.png', 'zimbabwe.png', 'not started', '2018-10-05', 1, 'sa,zim', 0),
+(5, 'Nz Vs England', '11:00 pm', ' Don Bradman Series', 'nz.png', 'england.png', 'not started', '2018-10-05', 1, 'nz,eng', 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `time1`
+-- Table structure for table `squad`
 --
 
-CREATE TABLE `time1` (
-  `time_id` int(11) NOT NULL,
-  `month` varchar(3) NOT NULL,
-  `day` int(2) NOT NULL,
-  `year` int(5) NOT NULL,
-  `hour` int(2) NOT NULL,
-  `minute` int(2) NOT NULL,
-  `second` int(2) NOT NULL
+CREATE TABLE `squad` (
+  `id` int(11) NOT NULL,
+  `info` varchar(255) NOT NULL,
+  `player` varchar(255) NOT NULL,
+  `team` varchar(255) NOT NULL,
+  `credits` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `time1`
+-- Dumping data for table `squad`
 --
 
-INSERT INTO `time1` (`time_id`, `month`, `day`, `year`, `hour`, `minute`, `second`) VALUES
-(5, 'oct', 6, 2018, 22, 0, 0),
-(6, 'oct', 7, 2018, 10, 0, 0);
+INSERT INTO `squad` (`id`, `info`, `player`, `team`, `credits`) VALUES
+(1, 'batsman', 'virat kohli', 'india', 10),
+(2, 'batsman', 'rohit sharma', 'india', 10),
+(3, 'batsman', 'shikhar dhawan', 'india', 9),
+(4, 'wicketkeeper', 'm s dhoni', 'india', 9),
+(5, 'bowler', 'jasprit bumrah', 'india', 9.5),
+(6, 'bowler', 'bhuvaneshwar kumar', 'india', 9.5),
+(7, 'bowler', 'yujvendra chahal', 'india', 9),
+(8, 'all rounder', 'hardik pandya', 'india', 9);
 
 -- --------------------------------------------------------
 
@@ -195,10 +202,10 @@ ALTER TABLE `posts`
   ADD PRIMARY KEY (`post_id`);
 
 --
--- Indexes for table `time1`
+-- Indexes for table `squad`
 --
-ALTER TABLE `time1`
-  ADD PRIMARY KEY (`time_id`);
+ALTER TABLE `squad`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `users`
@@ -235,10 +242,10 @@ ALTER TABLE `posts`
   MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `time1`
+-- AUTO_INCREMENT for table `squad`
 --
-ALTER TABLE `time1`
-  MODIFY `time_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+ALTER TABLE `squad`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `users`

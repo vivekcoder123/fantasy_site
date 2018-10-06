@@ -1,79 +1,44 @@
 
             <!-- Blog Sidebar Widgets Column -->
-            <div class="col-md-4 mt-5">
+            <div class="col-md-4 mt-5 text-center">
 
-                <!-- Blog Search Well -->
+            <h4 class="display-4 text-secondary">Create Your Team</h4>
 
+             <p class="text-danger font-weight-bold">Select 5 players,save team and join the contest</p>
 
+             <table class="table table-striped table-bordered">
 
-                <div class="well">
-                    <h4>Match Search</h4>
-                    <form action="search.php" method="post">
-                      <div class="input-group">
-                          <input type="text" name="search" class="form-control">
-                          <span class="input-group-btn">
-                              <button class="btn btn-default" name="submit" type="submit">
-                                  <span class="glyphicon glyphicon-search"></span>
-                          </button>
-                          </span>
-                      </div>
-                    </form>
+               <thead>
+                 <td>Info</td>
+                 <td>Player</td>
+                 <td>Team</td>
+                 <td>Credits</td>
+               </thead>
 
-                    <!-- /.input-group -->
-                </div>
+               <tbody>
+                <?php
 
-
-                <!--Log In -->
-
-                <div class="well">
-                    <h4>Log In</h4>
-                    <form action="includes/login.php" method="post">
-                      <div class="form-group">
-                          <input type="text" name="username" class="form-control" placeholder="Enter Username">
-                      </div>
-                      <div class="form-group">
-                          <input type="password" name="password" class="form-control" placeholder="Enter Password">
-                      </div>
-                      <input type="submit" name="login" value="Submit" class="btn btn-primary">
-                    </form>
-
-                    <!-- /.input-group -->
-                </div>
+                  $select_query=mysqli_query($connection,"SELECT * from squad");
+                  while($row=mysqli_fetch_array($select_query)){
+                    $info=$row['info'];
+                    $player=$row['player'];
+                    $team=$row['team'];
+                    $credits=$row['credits'];
 
 
-                <!-- Blog Categories Well -->
-                <div class="well">
-                  <?php
+                 ?>
+                 <tr>
+                   <td><?php echo ucwords($info); ?></td>
+                   <td><?php echo ucwords($player); ?></td>
+                   <td><?php echo ucwords($team); ?></td>
+                   <td><?php echo ucwords($credits); ?></td>
+                   <td>
+                    <input type="checkbox" name="" value="">
+                   </td>
+                 </tr>
+            <?php } ?>
+               </tbody>
 
-                    $select="SELECT * FROM categories";
-                    $category_query=mysqli_query($connection,$select);
-
-                   ?>
-                    <h4>Blog Categories</h4>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <ul class="list-unstyled">
-                              <?php
-
-                                while($row=mysqli_fetch_assoc($category_query)){
-                                  $cat_title=$row['cat_title'];
-                                  $cat_id=$row['cat_id'];
-
-
-                              ?>
-                                <li><a href="category.php?c_id=<?php echo $cat_id;?>"><?php echo $cat_title; ?></a>
-                                <?php } ?>
-
-                            </ul>
-                        </div>
-
-
-                        <!-- /.col-lg-6 -->
-                    </div>
-                    <!-- /.row -->
-                </div>
-
-                <!-- Side Widget Well -->
-              <?php include "includes/widget.php"; ?>
-
+             </table>
+  <input type="submit" name="save_team" value="Save Team" class="btn btn-primary">
             </div>
