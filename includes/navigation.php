@@ -19,7 +19,7 @@
 
       ?>
   <li class="nav-item btn btn-dark">
-            <a href="admin" class="nav-link">Admin</a>
+            <a href="./admin/index.php" class="nav-link">Admin</a>
         </li>
 
     </ul>

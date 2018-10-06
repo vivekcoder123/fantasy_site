@@ -45,6 +45,17 @@
                     </li>
                 </ul>
             </li>
+             <li>
+                <a href="javascript:;" data-toggle="collapse" data-target="#d"><i class="fa fa-fw fa-arrows-v"></i> Matches <i class="fa fa-fw fa-caret-down"></i></a>
+                <ul id="d" class="collapse">
+                    <li>
+                        <a href="contest.php">View All Contests</a>
+                    </li>
+                    <li>
+                        <a href="contest.php?source=add_contest">Add Contest </a>
+                    </li>
+                </ul>
+            </li>
             <li>
                 <a href="categories.php"><i class="fa fa-fw fa-wrench"></i> Categories</a>
             </li>

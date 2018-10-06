@@ -14,7 +14,7 @@
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/bootstrap1.min.css" rel="stylesheet">
-
+<link rel="stylesheet" href="css/font-awesome.min.css">
     <!-- Custom CSS -->
     <link href="css/blog-home.css" rel="stylesheet">
 

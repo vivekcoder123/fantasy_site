@@ -1,5 +1,4 @@
 <?php
-
 if(isset($_POST['create_post'])){
 
 $post_title=$_POST['title'];
@@ -13,7 +12,6 @@ $post_image_temp2=$_FILES['image2']['tmp_name'];
 $post_tags=$_POST['post_tags'];
 $post_content=$_POST['post_content'];
 $post_date=date('d-m-y');
-
 move_uploaded_file($post_image_temp1,"../images/$post_image1");
 move_uploaded_file($post_image_temp2,"../images/$post_image2");
 

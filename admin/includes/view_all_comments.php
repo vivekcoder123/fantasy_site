@@ -1,7 +1,6 @@
 
           <table class="table table-bordered table-hover">
-
-             <thead>
+               <thead>
                <tr>
                  <th>Id</th>
                  <th>Author</th>
