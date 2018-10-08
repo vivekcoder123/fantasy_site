@@ -8,7 +8,7 @@ if(isset($_GET['id'])){
 $id=$_GET['id'];
 }
 ?>
-    <div class="container mt-5">
+    <div class="container-fluid">
 
         <div class="row mt-5" >
 
@@ -52,7 +52,7 @@ $id=$_GET['id'];
                      <img class="img-responsive float-right" src="images/<?php echo $post_image2;?>" alt="This is an image" style="width:20%;">
                      <br>
                      <h4 class="text-secondary"><?php echo $post_content;  ?></h4>
-                      <h5 class="text-danger font-weight-bold"><span class="glyphicon glyphicon-time"></span> Starting at <?php echo $post_time;?></h4>
+                      <h5 class="text-danger font-weight-bold"><span class="glyphicon glyphicon-time"></span> Starting at <?php echo $post_time;?></h5>
                       <br>
 
                    </div>
@@ -73,6 +73,7 @@ $id=$_GET['id'];
                                    $winnings=$row['contest_winnigs'];
                                    $fees=$row['contest_fees'];
                                    $total_teams=$row['total_teams'];
+                                     $id=$row['contest_id'];
                                       echo "<script type='text/javascript'>";
                                       echo "document.querySelector('#err').style.display='none' ";
                                       echo "</script>";
@@ -119,7 +120,7 @@ $id=$_GET['id'];
                                    </div>
 
                                 <div class="card-footer text-center">
-                                  <a href="#" class="btn btn-success">Join Now</a>
+                                  <a href="team.php?id=<?php echo $post_id; ?>" class="btn btn-success">Join Now</a>
                                 </div>
 
                                 </div>
@@ -135,3 +136,4 @@ $id=$_GET['id'];
 
         <!-- Footer -->
 <?php include "includes/footer.php" ?>
+<?php echo $post_id; ?>
