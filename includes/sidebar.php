@@ -1,44 +1,29 @@
-
             <!-- Blog Sidebar Widgets Column -->
             <div class="col-md-4 mt-5 text-center">
-
-            <h4 class="display-4 text-secondary">Create Your Team</h4>
+                   <form method="post" action="">
+             <h4 class="display-4 text-secondary">Create Your Team</h4>
 
              <p class="text-danger font-weight-bold">Select 5 players,save team and join the contest</p>
+             <div class="container-fluid">
+             <div class="d-flex flex-row text-white align-items-stretch text-center">
+               <div id="click" class="port-item p-4 bg-primary" data-toggle="collapse" data-target="#home" style="cursor:pointer;">
+                 <i class="fa fa-blind d-block"></i> Batsman
+               </div>
+               <div class="port-item p-4 bg-success" data-toggle="collapse" data-target="#resume" style="cursor:pointer;">
+                 <i class="fa fa-soccer-ball-o d-block"></i> Bowler
+               </div>
+               <div class="port-item p-4 bg-warning" data-toggle="collapse" data-target="#work" style="cursor:pointer;">
+                 <i class="fa fa-group d-block"></i> All Rounder
+               </div>
+               <div class="port-item p-4 bg-danger" data-toggle="collapse" data-target="#contact" style="cursor:pointer;">
+                 <i class="fa fa-signing d-block"></i> Wicket Keeper
+               </div>
+             </div>
+           </div>
 
-             <table class="table table-striped table-bordered">
+           <br>
 
-               <thead>
-                 <td>Info</td>
-                 <td>Player</td>
-                 <td>Team</td>
-                 <td>Credits</td>
-               </thead>
-
-               <tbody>
-                <?php
-
-                  $select_query=mysqli_query($connection,"SELECT * from squad");
-                  while($row=mysqli_fetch_array($select_query)){
-                    $info=$row['info'];
-                    $player=$row['player'];
-                    $team=$row['team'];
-                    $credits=$row['credits'];
-
-
-                 ?>
-                 <tr>
-                   <td><?php echo ucwords($info); ?></td>
-                   <td><?php echo ucwords($player); ?></td>
-                   <td><?php echo ucwords($team); ?></td>
-                   <td><?php echo ucwords($credits); ?></td>
-                   <td>
-                    <input type="checkbox" name="" value="">
-                   </td>
-                 </tr>
-            <?php } ?>
-               </tbody>
-
-             </table>
-  <input type="submit" name="save_team" value="Save Team" class="btn btn-primary">
+            <?php include "includes/select.php"; ?>
+  <input type="submit" name="submit" value="Save Team" class="btn btn-primary">
+</form>
             </div>
