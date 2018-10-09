@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.1
+-- version 4.7.7
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 08, 2018 at 02:15 PM
--- Server version: 10.1.33-MariaDB
--- PHP Version: 7.2.6
+-- Generation Time: Oct 09, 2018 at 03:19 PM
+-- Server version: 10.1.30-MariaDB
+-- PHP Version: 7.1.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -87,9 +87,9 @@ CREATE TABLE `contest` (
 --
 
 INSERT INTO `contest` (`contest_id`, `contest_title`, `contest_winner`, `contest_winnigs`, `contest_fees`, `total_teams`, `contest_post_id`) VALUES
-(9, 'Mega Contest', 567, 12345678, 10, 124000, 0),
-(10, 'Head To Head', 456, 12345, 20, 24557, 0),
-(11, 'Free Roll', 789, 9876, 15, 34365849, 0);
+(9, 'Mega Contest', 567, 12345678, 10, 124000, 2),
+(10, 'Head To Head', 456, 12345, 20, 24557, 2),
+(11, 'Free Roll', 789, 9876, 15, 34365849, 2);
 
 -- --------------------------------------------------------
 
@@ -190,16 +190,47 @@ INSERT INTO `users` (`user_id`, `username`, `user_password`, `user_role`, `user_
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `users_players`
+--
+
+CREATE TABLE `users_players` (
+  `id` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `users_players`
+--
+
+INSERT INTO `users_players` (`id`, `username`, `email`, `password`) VALUES
+(1, 'vivrockers', 'vivekrautela000@gmail.com', 'jarineee');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `user_team`
 --
 
 CREATE TABLE `user_team` (
+  `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `player_id` int(11) NOT NULL,
   `player_name` varchar(255) NOT NULL,
   `player_role` varchar(255) NOT NULL,
-  `player_team` varchar(255) NOT NULL
+  `player_team` varchar(255) NOT NULL,
+  `credits` int(11) NOT NULL,
+  `post_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user_team`
+--
+
+INSERT INTO `user_team` (`id`, `user_id`, `player_id`, `player_name`, `player_role`, `player_team`, `credits`, `post_id`) VALUES
+(64, 1, 1, 'virat kohli', 'batsman', 'india', 10, 2),
+(65, 1, 1, 'virat kohli', 'batsman', 'india', 10, 2);
 
 --
 -- Indexes for dumped tables
@@ -248,6 +279,18 @@ ALTER TABLE `users`
   ADD PRIMARY KEY (`user_id`);
 
 --
+-- Indexes for table `users_players`
+--
+ALTER TABLE `users_players`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `user_team`
+--
+ALTER TABLE `user_team`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -292,6 +335,18 @@ ALTER TABLE `squad`
 --
 ALTER TABLE `users`
   MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `users_players`
+--
+ALTER TABLE `users_players`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `user_team`
+--
+ALTER TABLE `user_team`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

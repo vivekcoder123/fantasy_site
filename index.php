@@ -1,3 +1,9 @@
+<?php
+ session_start();
+ if(!isset($_SESSION['user_id'])){
+   header("Location:login.php");
+ }
+  ?>
 <?php include "includes/header.php" ?>
 
 <?php include "includes/navigation.php" ?>
@@ -18,7 +24,6 @@
 
                 <!-- First Blog Post -->
                 <?php
-    session_start();
                  $select="SELECT * FROM posts";
                  $posts_select=mysqli_query($connection,$select);
                  while($row=mysqli_fetch_assoc($posts_select)){

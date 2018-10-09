@@ -1,3 +1,6 @@
+<?php session_start();
+ $user_id=$_SESSION['user_id'];
+ ?>
 <?php include "includes/header.php" ?>
 
 <?php include "includes/navigation.php" ?>
@@ -133,6 +136,8 @@ $id=$_GET['id'];
         <!-- /.row -->
 
         <hr>
+
+
 
         <!-- Footer -->
 <?php include "includes/footer.php" ?>

@@ -14,7 +14,7 @@ if(isset($_POST["submit"]))
       $player_info=$row['info'];
       $player_team=$row['team'];
       $player_credits=$row['credits'];
-      $insert_query = "INSERT INTO user_team(id,player_id,player_name,player_role,player_team,credits) VALUES ('','$player_id','$for_query','$player_info','$player_team','$player_credits')";
+      $insert_query = "INSERT INTO user_team(id,user_id,player_id,player_name,player_role,player_team,credits) VALUES ('','$user_id','$player_id','$for_query','$player_info','$player_team','$player_credits')";
       mysqli_query($connection,$insert_query);
      }
 
@@ -26,6 +26,7 @@ if(isset($_POST["submit"]))
   if(mysqli_query($connection, $insert_query))
   {
       echo '<label class="text-success">Team successfully created</label>';
+      $team_created=1;
   }
  }
 }
@@ -192,3 +193,15 @@ if(isset($_POST["submit"]))
 
   </table>
 </div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    var limit = 2;
+    $('input[type=checkbox]').on('change', function (e) {
+        if ($('input[type=checkbox]:checked').length > 5) {
+            $(this).prop('checked', false);
+            alert("You can select maximum of 5 players only");
+        }
+    });
+  });
+</script>

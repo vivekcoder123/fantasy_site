@@ -1,6 +1,11 @@
             <!-- Blog Sidebar Widgets Column -->
+            <?php
+            $team_created=0;
+             if($team_created==0){
+
+             ?>
             <div class="col-md-4 mt-5 text-center">
-                   <form method="post" action="">
+                   <form method="post" action="" onsubmit="documen">
              <h4 class="display-4 text-secondary">Create Your Team</h4>
 
              <p class="text-danger font-weight-bold">Select 5 players,save team and join the contest</p>
@@ -24,6 +29,17 @@
            <br>
 
             <?php include "includes/select.php"; ?>
-  <input type="submit" name="submit" value="Save Team" class="btn btn-primary">
+  <input type="submit" name="submit" value="Save Team" class="btn btn-primary" onclick="<?php echo $team_created=1;?>">
 </form>
             </div>
+<?php
+}else{
+  echo "view your team here";
+}
+
+ ?>
+<script type="text/javascript">
+  function sexy(){
+    <?php $team_created=1;?>
+  }
+</script>
